@@ -6,7 +6,7 @@
 *.dex
 
 # Java class files
-*.class
+#*.class
 
 # Generated files
 bin/
@@ -50,7 +50,7 @@ captures/
 .externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
-google-services.json
+#google-services.json
 
 # Freeline
 freeline.py
