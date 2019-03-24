@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="2dp"
+    android:layout_height="50dp">
+
+
+    <RelativeLayout
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_border"
+        android:layout_margin="1dp">
+
+        <TextView
+            android:id="@+id/flaga"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Grade"
+            android:textColor="#096d99"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_border"
+        android:layout_margin="1dp">
+
+        <TextView
+            android:id="@+id/dossiera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="N° dossier"
+            android:textColor="#096d99"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_border"
+        android:layout_margin="1dp"
+        android:layout_weight="7">
+
+        <TextView
+            android:id="@+id/patienta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Patient"
+            android:textColor="#096d99"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_border"
+        android:layout_margin="1dp"
+        android:layout_weight="7">
+
+        <TextView
+            android:id="@+id/datea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/datee"
+            android:textColor="#096d99"
+            android:textSize="18dp" />
+    </RelativeLayout>
+</LinearLayout>

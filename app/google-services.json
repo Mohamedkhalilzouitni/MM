@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "97441364486",
+    "firebase_url": "https://monitox-oncologie.firebaseio.com",
+    "project_id": "monitox-oncologie",
+    "storage_bucket": "monitox-oncologie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97441364486:android:66df1e6228c2ac4d",
+        "android_client_info": {
+          "package_name": "com.example.www.mm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97441364486-7m3be0e24h4ner5h4hte7ihp9416debb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.www.mm",
+            "certificate_hash": "2ecd2b2f8488f9ab475f29fe13502907547e4e28"
+          }
+        },
+        {
+          "client_id": "97441364486-7uu1l2rs3v16h57c0448a88kqg4qsbmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7iHVN0cC5vjy_NXsyxy4i0sJ7JWh8GLw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97441364486-7uu1l2rs3v16h57c0448a88kqg4qsbmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97441364486:android:2b9a511ed9381f86",
+        "android_client_info": {
+          "package_name": "com.watching_environment.MoniTox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97441364486-r84dsighe2o0kcihd722l4t0bncjsp25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.watching_environment.MoniTox",
+            "certificate_hash": "c1149350f1b8417b155f5eb5114f2fd5d1b62d09"
+          }
+        },
+        {
+          "client_id": "97441364486-01ie5jvsupd6lr3kdlrcko10qil0tc7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.watching_environment.MoniTox",
+            "certificate_hash": "2ecd2b2f8488f9ab475f29fe13502907547e4e28"
+          }
+        },
+        {
+          "client_id": "97441364486-7uu1l2rs3v16h57c0448a88kqg4qsbmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7iHVN0cC5vjy_NXsyxy4i0sJ7JWh8GLw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97441364486-7uu1l2rs3v16h57c0448a88kqg4qsbmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/back"
+    tools:context=".Alerte">
+
+    <TextView
+        android:id="@+id/alerte_label"
+        android:layout_width="216dp"
+        android:layout_height="63dp"
+        android:background="@drawable/shapesignup"
+        android:text="Alerte"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:background="@drawable/cborder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333">
+
+        <TextView
+            android:id="@+id/nom_prenom_alerte"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="Patient :" />
+
+        <TextView
+            android:id="@+id/np"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:gravity="center|left"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:background="@drawable/cborder"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.446">
+
+        <TextView
+            android:id="@+id/num_dos_alerte"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingLeft="5dp"
+            android:gravity="center|left"
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="N° dossier :" />
+
+        <TextView
+            android:id="@+id/nd"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:gravity="center|left"
+            android:textColor="#000"
+            android:layout_weight="1"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:background="@drawable/cborder"
+        android:padding="2dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217">
+
+        <TextView
+            android:id="@+id/date_alerte"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:textSize="18dp"
+            android:text="Date d'envoi :" />
+
+        <TextView
+            android:id="@+id/dateal"
+            android:layout_width="130dp"
+            android:textSize="18dp"
+            android:gravity="center|left"
+            android:textColor="#000"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="142dp"
+        android:background="@drawable/cborder"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.664">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="2dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sym_labela"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:paddingLeft="5dp"
+                android:textColor="#000"
+                android:gravity="center|left"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:text="symptôme :" />
+
+            <TextView
+                android:id="@+id/syma"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:textSize="18dp"
+                android:gravity="center|left"
+                android:textColor="#000"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="2dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gr_labela"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:paddingLeft="5dp"
+                android:gravity="center|left"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:text="Grade :" />
+
+            <TextView
+                android:id="@+id/gra"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:textSize="18dp"
+                android:gravity="center|left"
+                android:textColor="#000"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/supprimer_text"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shapeemail"
+        android:gravity="center|left"
+        android:paddingLeft="6dp"
+        android:text="Supprimer alerte"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <TextView
+        android:id="@+id/rapport_text"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shapeemail"
+        android:gravity="center|left"
+        android:paddingLeft="25dp"
+        android:text="Rapport"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854" />
+
+    <TextView
+        android:id="@+id/profil_text"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shapeemail"
+        android:gravity="center|left"
+        android:paddingLeft="40dp"
+        android:text="Profil"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:onClick="profile"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854" />
+
+    <TextView
+        android:id="@+id/appel_text"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shapeemail"
+        android:gravity="center|left"
+        android:paddingLeft="6dp"
+        android:text="Appeler patient"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <ImageView
+        android:id="@+id/appel_pic"
+        android:layout_width="37dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/appel_text"
+        app:layout_constraintEnd_toEndOf="@+id/appel_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/appel_text"
+        app:layout_constraintTop_toTopOf="@+id/appel_text"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/call" />
+
+    <ImageView
+        android:id="@+id/suprimer_pic"
+        android:layout_width="26dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/supprimer_text"
+        app:layout_constraintEnd_toEndOf="@+id/supprimer_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/supprimer_text"
+        app:layout_constraintTop_toTopOf="@+id/supprimer_text"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/eraser" />
+
+    <ImageView
+        android:id="@+id/profil_pic"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="profile"
+        app:layout_constraintBottom_toBottomOf="@+id/profil_text"
+        app:layout_constraintEnd_toEndOf="@+id/profil_text"
+        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintStart_toStartOf="@+id/profil_text"
+        app:layout_constraintTop_toTopOf="@+id/profil_text"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/resume" />
+
+    <ImageView
+        android:id="@+id/rapport_pic"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rapport_text"
+        app:layout_constraintEnd_toEndOf="@+id/rapport_text"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="@+id/rapport_text"
+        app:layout_constraintTop_toTopOf="@+id/rapport_text"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/medical_history4" />
+
+</android.support.constraint.ConstraintLayout>
