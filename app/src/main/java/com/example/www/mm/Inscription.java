@@ -44,8 +44,9 @@ public class Inscription extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
-        //startActivity(new Intent(Inscription.this,MainActivity.class));
+       // moveTaskToBack(false);
+        startActivity(new Intent(Inscription.this,MainActivity.class));
+        finish();
     }
 
     @Override
@@ -56,6 +57,7 @@ public class Inscription extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int success = 1;
+
                 EditText nomm = findViewById(R.id.nom_prompt);
                 String nom = nomm.getText().toString();
                 if(nom.length()==0){

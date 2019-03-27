@@ -52,20 +52,13 @@ public class myFirebaseInstanceService extends FirebaseMessagingService {
     }
 
     private void showNotification(String title, String body) {
-//        Uri soundUri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"+ getApplicationContext().getPackageName() + "/" + R.raw.system_fault);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String NOTIFICATION_CHANNEL_ID = "com.example.www.mm.test";
-
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID,"Notification",NotificationManager.IMPORTANCE_DEFAULT);
                 notificationChannel.setDescription("my Desc");
                 notificationChannel.enableVibration(true);
-                AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                        .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                        .build();
-                notificationChannel.setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+ "://" +getApplicationContext().getPackageName()+"/"+R.raw.alarm_frenzy),audioAttributes);
                 notificationChannel.setLightColor(Color.BLUE);
                 notificationChannel.setVibrationPattern(new long[]{0,1000,500,1000});
                 notificationChannel.enableLights(true);

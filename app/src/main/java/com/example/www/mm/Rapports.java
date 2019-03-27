@@ -43,7 +43,7 @@ public class Rapports extends AppCompatActivity {
         if (bundle != null)
         {
             int size = bundle.getInt("size");
-            rapports=new String[size][10];
+            rapports=new String[size][5];
             Object[] objectArray = (Object[]) bundle.getSerializable("rapports");
             if(objectArray!=null){
                 rapports = new String[size][];

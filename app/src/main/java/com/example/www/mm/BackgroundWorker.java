@@ -505,7 +505,6 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                             String date_alerte = JObject.getString("date_alerte");
                                     jArray = new String[]{String.valueOf(grade), num_dossier, nom + " " + prenom, date_alerte, tel,String.valueOf(id_alerte),String.valueOf(id_patient),String.valueOf(id_rapport)};
                             alertes[i] = (String[]) jArray;
-                           // Toast.makeText(context,alertes[i][5],Toast.LENGTH_SHORT).show();
                       }
                    moveAa(alertes,size);
                 } catch (JSONException e) {
@@ -516,11 +515,10 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                     JSONObject reader = new JSONObject(s);
                     JSONObject sized = reader.getJSONObject("data");
                     int size = sized.getInt("size");
-                    String [][] rapports = new String[size][9];
+                    String [][] rapports = new String[size][5];
                     String[] jArray;
                     for (int i=0;i<size;i++) {
                         JSONObject JObject = reader.getJSONObject(String.valueOf(i));
-                       // int grade = JObject.getInt("grade");
                         String nom = JObject.getString("nom");
                         String prenom = JObject.getString("prenom");
                         int id_patient = JObject.getInt("id_patient");
@@ -600,8 +598,7 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                     int result = JObject.getInt("success");
                     if (result == 1){
                         moveSR();
-                      //  Home.rnn--;
-                        Toast.makeText(context,"rapport supprimée!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"rapport supprimé!",Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(context,"Erreur!",Toast.LENGTH_SHORT).show();
                     }
@@ -613,7 +610,6 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                     JSONObject reader = new JSONObject(s);
                     JSONObject JObject = reader.getJSONObject("data");
                     int ri = JObject.getInt("success");
-                    Toast.makeText(context, String.valueOf(ri), Toast.LENGTH_SHORT).show();
                     ReactToInsPatient(ri);
                 } catch (JSONException e) {
                     e.printStackTrace();
