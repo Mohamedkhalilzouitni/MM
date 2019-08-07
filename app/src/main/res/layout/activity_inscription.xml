@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Nom"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:textColorHint="#022f48"
                 android:visibility="visible" />
@@ -83,7 +83,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Prénom"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:textColorHint="#022f48"
                 android:visibility="visible" />
@@ -106,7 +106,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="INPE"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:textColorHint="#022f48"
                 android:visibility="visible" />
@@ -154,7 +154,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Ville"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:textColorHint="#022f48"
                 android:visibility="visible" />

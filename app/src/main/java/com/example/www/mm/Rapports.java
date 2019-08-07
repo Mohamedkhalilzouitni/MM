@@ -19,13 +19,18 @@ public class Rapports extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rapports);
+
         TextView inscription =  findViewById(R.id.rapports_lab);
         SpannableString content11 = new SpannableString("Rapports");
         content11.setSpan(new UnderlineSpan(), 0, content11.length(), 0);
         inscription.setText(content11);
+
         Typeface Acme = Typeface.createFromAsset(this.getAssets(),"Acme-Regular.ttf");
         inscription.setTypeface(Acme);
+
+
         ImageView refRap = findViewById(R.id.refreshRapports);
+
         refRap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +66,6 @@ public class Rapports extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
 
                     @Override
-
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String[] info =(String[]) parent.getItemAtPosition(position);
                         BackgroundWorker bW = null;
@@ -70,7 +74,7 @@ public class Rapports extends AppCompatActivity {
                         } catch (Exception E) {
                             E.printStackTrace();
                         }
-                        bW.execute(info[2],info[3],"detail_rapport", info[4]);
+                        bW.execute(info[0],info[3],"detail_rapport");
                     }
 
                 }

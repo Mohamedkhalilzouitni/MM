@@ -38,8 +38,8 @@ public class AjouterPatient extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1Fragment(), "Renseignemens sociaux");
-        adapter.addFragment(new Tab2Fragment(), "Renseignemens médicaux");
+        adapter.addFragment(new Tab1Fragment(), "Renseignements Sociaux");
+        adapter.addFragment(new Tab2Fragment(), "Données Médicales");
         viewPager.setAdapter(adapter);
     }
 

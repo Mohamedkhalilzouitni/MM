@@ -1,14 +1,136 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".alertesPatient">
+    android:background="@mipmap/back">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="60dp"
+        android:layout_height="100dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/alertes_lab"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/shapesignup"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:text="Alertes"
+            android:textColor="#000"
+            android:textSize="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="160dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_margin="1dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/item_border"
+            >
+
+            <TextView
+                android:id="@+id/flag_a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:gravity="center"
+                android:text="Grade"
+                android:textSize="18dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="@drawable/item_border"
+            >
+
+            <TextView
+                android:id="@+id/dossier_a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:gravity="center"
+                android:text="N° dossier"
+                android:textSize="18dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_centerVertical="true"
+            android:layout_weight="7"
+            android:background="@drawable/item_border">
+
+            <TextView
+                android:id="@+id/patient_a"
+                android:layout_width="82dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Patient"
+                android:textColor="#000"
+                android:textSize="18dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="@drawable/item_border"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/date_a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:gravity="center"
+                android:text="@string/datee"
+                android:textSize="18dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:orientation="vertical">
+        <ListView
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+
+            android:id="@+id/pa">
+
+
+
+        </ListView>
+    </LinearLayout>
+
+
+</RelativeLayout>

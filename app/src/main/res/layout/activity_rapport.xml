@@ -7,33 +7,36 @@
     android:background="@mipmap/back"
     tools:context=".Rapport">
 
-        <TextView
-            android:id="@+id/rapport_label"
-            android:layout_width="216dp"
-            android:layout_height="63dp"
-            android:background="@drawable/shapesignup"
-            android:text="Rapport"
-            android:gravity="center"
-            android:textColor="#fff"
-            android:textSize="33dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.047" />
+    <TextView
+        android:id="@+id/rapport_label"
+        android:layout_width="209dp"
+        android:layout_height="56dp"
+        android:background="@drawable/shapesignup"
+        android:gravity="center"
+        android:text="Rapport"
+        android:textColor="#fff"
+        android:textSize="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="350dp"
-        android:layout_height="46dp"
-        android:background="@drawable/cborder"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:padding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/cborder"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/nom_prenom_alerte"
@@ -50,25 +53,28 @@
         <TextView
             android:id="@+id/npr"
             android:layout_width="130dp"
-            android:textColor="#000"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center|left"
             android:text=""
+            android:textColor="#000"
             android:textSize="18dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="350dp"
-        android:layout_height="46dp"
-        android:background="@drawable/cborder"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:padding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/cborder"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.002">
 
         <TextView
             android:id="@+id/num_dos_alerte"
@@ -88,16 +94,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:textColor="#000"
             android:text=""
+            android:textColor="#000"
             android:textSize="18dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="350dp"
-        android:layout_height="46dp"
-        android:background="@drawable/cborder"
+        android:layout_height="37dp"
         android:orientation="horizontal"
+        android:background="@drawable/cborder"
         android:padding="2dp"
         android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,29 +136,39 @@
             android:textSize="18dp" />
     </LinearLayout>
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout3"
         android:layout_width="350dp"
-        android:layout_height="247dp"
+        android:layout_height="228dp"
         android:background="@drawable/cborder"
         android:orientation="vertical"
         android:padding="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8">
-
+        app:layout_constraintVertical_bias="0.799">
 
         <LinearLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
             android:layout_marginBottom="57dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
             <TextView
                 android:id="@+id/symptom3"
@@ -179,15 +196,25 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="195dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="4dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
             <TextView
                 android:id="@+id/symptom4"
@@ -215,14 +242,23 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout8"
+            android:layout_width="338dp"
             android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="95dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="3dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
             <TextView
                 android:id="@+id/symptom2"
@@ -250,10 +286,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="140dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -283,7 +329,7 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -347,5 +393,44 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/resume" />
 
+    <LinearLayout
+        android:layout_width="352dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/cborder"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/dateChimio"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="5dp"
+            android:text="Dernière cure :"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dateChim"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text=""
+            android:textColor="#000"
+            android:textSize="18dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

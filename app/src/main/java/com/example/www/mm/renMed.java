@@ -22,14 +22,12 @@ public class renMed extends Fragment {
     public TextView centre_, service_,medecin_,localisation_,histologie_,stade_,strategie_,protocole_;
     public TextView centre, service,medecin,localisation,histologie,stade,strategie,protocole;
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.ren_med,container,false);
         TextView textView1 =  view.findViewById(R.id.RenM);
-        SpannableString content1 = new SpannableString("Renseignements médicaux");
+        SpannableString content1 = new SpannableString("Données Médicales");
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
         textView1.setText(content1);
 

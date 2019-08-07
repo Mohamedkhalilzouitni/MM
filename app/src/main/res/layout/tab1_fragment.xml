@@ -47,11 +47,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:ems="10"
-                android:hint="nom"
-                android:textColorHint="#444"
+                android:hint="Nom"
+                android:textColorHint="#333"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -70,10 +70,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
-                android:hint="prenom"
-                android:textColorHint="#444"
+                android:hint="Prénom"
+                android:textColorHint="#333"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -92,10 +92,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:hint="CIN"
-                android:textColorHint="#444"
+                android:textColorHint="#333"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -112,11 +112,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="number"
                 android:maxLines="1"
                 android:ems="10"
                 android:hint="Numéro de dossier"
-                android:textColorHint="#444"
+                android:textColorHint="#333"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -134,10 +133,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="2"
-                android:hint="adresse"
-                android:textColorHint="#444"
+                android:hint="Adresse / Ville"
+                android:textColorHint="#333"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -159,8 +158,28 @@
                 android:inputType="phone"
                 android:maxLines="1"
                 android:hint="Téléphone"
-                android:textColorHint="#444"
+                android:textColorHint="#333"
                 android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+
+            <Spinner
+                android:id="@+id/sc_"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|right"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:background="@drawable/cborder"
+                android:padding="4dp"></Spinner>
         </LinearLayout>
 
         <LinearLayout
@@ -180,28 +199,7 @@
                 android:inputType="number"
                 android:maxLines="1"
                 android:hint="Nombre d'enfants"
-                android:textColorHint="#444"
-                android:visibility="visible" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp">
-
-            <EditText
-                android:id="@+id/ln_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="text"
-                android:maxLines="1"
-                android:ems="10"
-                android:hint="Lieu de naissance"
-                android:textColorHint="#444"
+                android:textColorHint="#333"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -225,10 +223,31 @@
                 android:maxLines="1"
                 android:gravity="center"
                 android:textColor="#000"
-                android:textColorHint="#444"
+                android:textColorHint="#333"
                 android:textSize="18sp"
                 android:visibility="visible" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+
+            <EditText
+                android:id="@+id/ln_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:ems="10"
+                android:hint="Lieu de naissance"
+                android:textColorHint="#333"
+                android:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -255,25 +274,7 @@
             </Spinner>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp">
 
-            <Spinner
-                android:id="@+id/sc_"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center|right"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:background="@drawable/cborder"
-                android:padding="4dp"></Spinner>
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

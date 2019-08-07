@@ -3,6 +3,8 @@ package com.example.www.mm;
 
 import android.app.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -27,7 +29,8 @@ import android.widget.Toast;
 
 public class Alertes extends Activity {
 
-   static String[][] alertes = new String[10][10]; ;
+   static String[][] alertes = new String[10][11];
+   ImageView supprimer;
 
     @Override
 
@@ -36,7 +39,7 @@ public class Alertes extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_alertes);
-
+        supprimer = findViewById(R.id.supprimer);
         TextView alertes_lab =  findViewById(R.id.alertes_lab);
         SpannableString content1 = new SpannableString("Alertes");
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
@@ -63,7 +66,7 @@ public class Alertes extends Activity {
         if (bundle != null)
         {
             int size = bundle.getInt("size");
-            alertes=new String[size][10];
+            alertes=new String[size][11];
             Object[] objectArray = (Object[]) bundle.getSerializable("alertes");
             if(objectArray!=null){
                 alertes = new String[objectArray.length][];
@@ -74,6 +77,36 @@ public class Alertes extends Activity {
         } else {
             Toast.makeText(this,"Veuillez attendez SVP...",Toast.LENGTH_SHORT).show();
         }
+
+        supprimer.setOnClickListener(new View.OnClickListener() {
+            BackgroundWorker bW = null;
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder confirm = new AlertDialog.Builder(Alertes.this);
+                confirm.setCancelable(true);
+                confirm.setIcon(R.drawable.confirm);
+                confirm.setTitle("Confirmer ?");
+                confirm.setMessage("Etes-vous sûr de supprimer tous les alertes ?");
+                confirm.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        try {
+                            bW = new BackgroundWorker(Alertes.this);
+                        } catch (Exception E) {
+                            E.printStackTrace();
+                        }
+                        bW.execute("","","supprimerTousAlertes");
+                    }
+                })
+                        .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                });
+                confirm.create().show();
+            }
+        });
 
         ListAdapter buckysAdapter = new myAdapter(this, alertes);
         ListView buckysListView = findViewById(R.id.buckysListView);

@@ -1,14 +1,13 @@
 package com.example.www.mm;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Message;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.NotificationCompat;
@@ -18,26 +17,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.messaging.FirebaseMessaging;
+//import com.google.firebase.database.DataSnapshot;
+//import com.google.firebase.database.DatabaseError;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.ValueEventListener;
+//import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class    Home extends AppCompatActivity {
     static public String nom, prenom;
     TextView infoDr;
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference = firebaseDatabase.getReference("Alerts/newAlert");
+//    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//    DatabaseReference databaseReference = firebaseDatabase.getReference("Alerts/newAlert");
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -103,25 +101,30 @@ public class    Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         infoDr = findViewById(R.id.Info_Dr);
-        FirebaseMessaging.getInstance().subscribeToTopic("all");
+//        FirebaseMessaging.getInstance().subscribeToTopic("all");
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        databaseReference.addValueEventListener(new ValueEventListener(){
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot){
-                String lu = (String) dataSnapshot.getValue();
-                Log.d("TAG", lu);
-                if(lu.equals("0")){
-                    Notify(Home.this,"Nouvelle Alerte !","Cliquez pour en savoir plus...",getIntent());
-                    databaseReference.setValue("1");
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError error){
-
-            }
-        });
+//
+//        databaseReference.addValueEventListener(new ValueEventListener(){
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot){
+//                String lu = (String) dataSnapshot.getValue();
+//                Log.d("TAG", lu);
+//                if(lu.equals("0")){
+////                    Notify(Home.this,"Nouvelle Alerte !","Cliquez pour en savoir plus...",getIntent());
+//                   HashMap<String,String> data = new HashMap<>();
+//                   data.put("title","Nouvelle alerte !");
+//                   data.put("body","Cliquez pour en savoir plus...");
+//                   showNotification("Nouvelle alerte !","Cliquez pour en savoir plus...");
+//
+//                    databaseReference.setValue("1");
+//                }
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError error){
+//
+//            }
+//        });
 
         Intent intent = getIntent();
             Bundle bd = getIntent().getExtras();
@@ -176,6 +179,50 @@ public class    Home extends AppCompatActivity {
                 startActivity(new Intent(Home.this,Patients.class));
             }
         });
+    }
+
+    private void showNotification(String title, String body) {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String NOTIFICATION_CHANNEL_ID = "com.example.www.mm.test";
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID,"Notification",NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription("my Desc");
+            notificationChannel.enableVibration(true);
+            notificationChannel.setLightColor(Color.BLUE);
+            notificationChannel.setVibrationPattern(new long[]{0,1000,500,1000});
+            notificationChannel.enableLights(true);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
+        notificationBuilder.setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.drawable.alarm).setContentTitle(title).setContentText(body).setContentInfo("Info");
+        notificationManager.notify(new Random().nextInt(),notificationBuilder.build());
+    }
+
+    private void showNotification(Map<String,String> data) {
+
+        String title = data.get("title").toString();
+        String body = data.get("body").toString();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String NOTIFICATION_CHANNEL_ID = "com.example.www.mm.test";
+
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID,"Notification",NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription("my Desc");
+            notificationChannel.enableVibration(true);
+            notificationChannel.setLightColor(Color.BLUE);
+            notificationChannel.setVibrationPattern(new long[]{0,1000,500,1000});
+            notificationChannel.enableLights(true);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
+        notificationBuilder.setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.drawable.alarm).setContentTitle(title).setContentText(body).setContentInfo("Info");
+        notificationManager.notify(new Random().nextInt(),notificationBuilder.build());
     }
 
     public void Notify(Context context, String title, String body, Intent intent) {

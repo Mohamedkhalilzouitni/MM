@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="750dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical">
 
@@ -27,7 +27,7 @@
                 android:layout_margin="30dp"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Renseignements médicaux"
+                android:text="Données Médicales"
                 android:textColor="#000"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -63,6 +63,39 @@
                 android:layout_gravity="center|right">
 
             </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numtel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:gravity="center"
+                android:text="Téléphone du centre :"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/numtel_"
+                android:layout_width="match_parent"
+                android:background="@drawable/cborder"
+                android:padding="4dp"
+                android:paddingLeft="10dp"
+                android:layout_weight="5"
+                android:inputType="phone"
+                android:layout_height="40dp"
+                android:layout_gravity="center|right">
+
+            </EditText>
         </LinearLayout>
 
         <LinearLayout
@@ -225,6 +258,38 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:gravity="center"
+                android:text="Détails :"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/details_"
+                android:background="@drawable/cborder"
+                android:layout_width="match_parent"
+                android:padding="4dp"
+                android:lines="40"
+                android:layout_weight="5"
+                android:layout_height="80dp"
+                android:inputType="textCapWords"
+                android:layout_gravity="center|right">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
                 android:id="@+id/strategie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -263,7 +328,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="protocole"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:textColorHint="#333"
                 android:visibility="visible" />

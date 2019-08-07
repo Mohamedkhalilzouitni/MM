@@ -29,13 +29,11 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class Tab1Fragment extends Fragment {
-    private static final String TAG = "Tab1Fragment";
-
     public Spinner couverture, statut;
     public static View view;
     TextView edittext;
     DatePickerDialog.OnDateSetListener date;
-    final Calendar myCalendar = Calendar.getInstance();
+        final Calendar myCalendar = Calendar.getInstance();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,8 +41,8 @@ public class Tab1Fragment extends Fragment {
 
         couverture = (Spinner) view.findViewById(R.id.couverture_);
         statut = (Spinner) view.findViewById(R.id.sc_);
-        String [] couvs = {"--Couverture sociale--","Ramed","CNOPS","CNSS","FAR","Assurance privée","Sans"};
-        String [] status = {"--statut civil--","Célebataire","Marié(e)","Divorcé(e)","Veuf"};
+        String [] couvs = {"--Couverture médicale--","Ramed","CNOPS","CNSS","FAR","Assurance privée","Sans"};
+        String [] status = {"--statut civil--","Célibataire","Marié(e)","Divorcé(e)","Veuf"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,couvs);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,status);
         couverture.setAdapter(adapter);

@@ -18,8 +18,8 @@ import android.widget.Toast;
 public class Rapport extends AppCompatActivity {
 
      String[][] rapport = new String[4][3];
-    TextView dater,npr,ndr,symptom1,grade1,symptom2,grade2,symptom3,grade3,symptom4,grade4;
-     String nom,prenom,num_dossier,tel,date;
+     TextView dater,npr,ndr,symptom1,grade1,symptom2,grade2,symptom3,grade3,symptom4,grade4,dateC;
+     String nom,prenom,num_dossier,tel,date,dateChimio;
      int id_patient,id_rapport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class Rapport extends AppCompatActivity {
         dater = findViewById(R.id.dater);
         npr = findViewById(R.id.npr);
         ndr = findViewById(R.id.ndr);
+        dateC = findViewById(R.id.dateChim);
         symptom1 = findViewById(R.id.symptom1);
         grade1 = findViewById(R.id.grades1);
         symptom2 = findViewById(R.id.symptom2);
@@ -53,6 +54,7 @@ public class Rapport extends AppCompatActivity {
             num_dossier = b.getString("num_dossier");
             tel = b.getString("tel");
             date = b.getString("date");
+            dateChimio = b.getString("dateChimio");
             int size = b.getInt("size");
 
             rapport=new String[size][3];
@@ -66,6 +68,7 @@ public class Rapport extends AppCompatActivity {
             dater.setText(date);
             npr.setText(nom+" "+prenom);
             ndr.setText(num_dossier);
+            dateC.setText(dateChimio);
 
 
 

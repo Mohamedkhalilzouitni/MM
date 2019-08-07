@@ -13,6 +13,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FF0284A8"
         android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
 
@@ -32,7 +33,7 @@
                 android:id="@+id/tabItem3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="r.medicaux" />
+                android:text="données médicales" />
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>

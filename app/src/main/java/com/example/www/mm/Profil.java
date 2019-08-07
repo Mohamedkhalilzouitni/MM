@@ -2,13 +2,19 @@ package com.example.www.mm;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,13 +28,8 @@ public class Profil extends AppCompatActivity {
     static String[][] profils = new String[10][4];
     String nom,prenom,numDossier;
     int idPatient;
-
-//    public Profil(String nom, String prenom, String numDossier, int idPatient) {
-//        this.nom = nom;
-//        this.prenom = prenom;
-//        this.numDossier = numDossier;
-//        this.idPatient = idPatient;
-//    }
+    EditText search;
+    ListAdapter khalilsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class Profil extends AppCompatActivity {
         setContentView(R.layout.activity_profil);
         HashMap<String,Profil> profiles = new HashMap<>();
         Bundle bundle = getIntent().getExtras();
+        search = findViewById(R.id.search);
         if (bundle != null) {
             int size = bundle.getInt("size");
             if (size > 0) {
@@ -45,13 +47,9 @@ public class Profil extends AppCompatActivity {
                     profils = new String[objectArray.length][];
                     for (int i = 0; i < objectArray.length; i++) {
                         profils[i] = (String[]) objectArray[i];
-                      //  Profil p = new Profil(profils[i][1], profils[i][2], profils[i][3], Integer.valueOf(profils[i][0]));
-                      //  profiles.put(profils[i][3],p);
                     }
                 }
                 List<Profil> peopleByAge = new ArrayList<>(profiles.values());
-
-//                Collections.sort(peopleByAge, Comparator.comparing(Profil::getAge));
             } else {
                 AlertDialog.Builder error = new AlertDialog.Builder(Profil.this);
                 error.setCancelable(false);
@@ -69,14 +67,14 @@ public class Profil extends AppCompatActivity {
             Toast.makeText(this, "Veuillez attendez SVP...", Toast.LENGTH_SHORT).show();
         }
 
-        ListAdapter khalilsAdapter = new profilsAdapter(this, profils);
+        khalilsAdapter = new profilsAdapter(this, profils);
         ListView khalilsListView = findViewById(R.id.khalilsecondListView);
+        khalilsListView.setTextFilterEnabled(true);
         khalilsListView.setAdapter(khalilsAdapter);
+        khalilsListView.setTextFilterEnabled(true);
         khalilsListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
-
                     @Override
-
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String[] info = (String[]) parent.getItemAtPosition(position);
                         BackgroundWorker bW = null;
@@ -90,5 +88,22 @@ public class Profil extends AppCompatActivity {
 
                 }
         );
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Profil.this.khalilsAdapter.get
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 }

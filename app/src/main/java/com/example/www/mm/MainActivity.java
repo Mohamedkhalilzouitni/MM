@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+//import com.google.firebase.messaging.FirebaseMessaging;
+
 public class MainActivity extends AppCompatActivity {
 
     static public SharedPreferences sp;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         sp = getSharedPreferences("login",MODE_PRIVATE);
         boolean logged = sp.getBoolean("logged",false);
+//        FirebaseMessaging.getInstance().subscribeToTopic("all");
         if(logged){
             String nom = sp.getString("nom","");
             String prenom = sp.getString("prenom","");
