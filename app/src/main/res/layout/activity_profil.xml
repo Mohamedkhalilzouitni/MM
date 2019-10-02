@@ -1,48 +1,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
 
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Profil"
     android:background="@mipmap/back">
 
+    <!--<android.support.v7.widget.SearchView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/getIt"-->
+        <!--app:defaultQueryHint="Rechercher">-->
+
+    <!--</android.support.v7.widget.SearchView>-->
+
     <LinearLayout
+        android:id="@+id/searchField"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
-        <TextView
-            android:id="@+id/patlist"
+        android:layout_height="85dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="515dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
             android:gravity="center"
-            android:text="Noms des patients"
+            android:hint="Rechercher"
+            android:padding="4dp"
             android:textColor="#fff"
-            android:textSize="35dp"/>
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:text="Entrer" />
+
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/search"
-        android:hint="Recherche"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="102dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"></EditText>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/listHeader"
-        android:layout_marginTop="162dp"
+        android:layout_marginTop="92dp"
         android:orientation="horizontal">
 
 
@@ -96,7 +118,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="214dp"
+        android:layout_marginTop="154dp"
         android:orientation="vertical">
 
         <ListView

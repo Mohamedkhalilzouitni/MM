@@ -1,41 +1,92 @@
 package com.example.www.mm;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.www.mm.dummy.DummyContent;
-import com.example.www.mm.dummy.DummyContent.DummyItem;
-
-import java.util.List;
-
-import static com.example.www.mm.Rapports.rapports;
-
+import java.util.ArrayList;
 
 public class rapportsPatient extends Fragment {
 
     private static View view;
     ListView reports;
+    EditText searchAreaRP;
+    ListView khalilsList;
+    Button searchR;
+    ArrayList<String[]> rapports = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.patient_rapports, container, false);
 
-        ListAdapter khalilsAdapter = new mySecondAdapter(getContext(), singleProfile.rapports);
-        ListView khalilsListView = view.findViewById(R.id.pr);
-        khalilsListView.setAdapter(khalilsAdapter);
-        khalilsListView.setOnItemClickListener(
+        searchR = view.findViewById(R.id.searchBtnRP);
+        searchAreaRP = view.findViewById(R.id.searchRP);
+        khalilsList = view.findViewById(R.id.pr);
+        rapports = singleProfile.rapports;
+
+        searchR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchRP();
+            }
+        });
+
+        searchR.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mySecondAdapter khalilsAdapter = new mySecondAdapter(getContext(), rapports);
+                initList(khalilsAdapter);
+            }
+        });
+
+        mySecondAdapter khalilsAdapter = new mySecondAdapter(getContext(), rapports);
+        initList(khalilsAdapter);
+
+        return view;
+    }
+
+    public void searchRP() {
+        String al = searchAreaRP.getText().toString();
+        try {
+            ArrayList<String[]> selectedAlerts = new ArrayList<>();
+            for (String[] rapport : rapports){
+                if(rapport[4].toLowerCase().contains(al.toLowerCase())){
+                    selectedAlerts.add(rapport);
+                    System.out.println(rapport[2]);
+                }
+            }
+
+            mySecondAdapter pf = new mySecondAdapter(getContext(),selectedAlerts);
+            initList(pf);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    void initList(mySecondAdapter pf) {
+        khalilsList.setAdapter(pf);
+        khalilsList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){
 
                     @Override
@@ -52,8 +103,5 @@ public class rapportsPatient extends Fragment {
 
                 }
         );
-
-
-        return view;
     }
 }

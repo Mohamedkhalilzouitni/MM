@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 public class mySecondAdapter extends ArrayAdapter<String[]> {
 
-    String[][] rapportss;
-    public mySecondAdapter(@NonNull Context context, @NonNull String[][] rapports) {
-        super(context, R.layout.alerte,(String[][]) rapports);
+    ArrayList<String[]> rapportss;
+
+    public mySecondAdapter(@NonNull Context context, @NonNull ArrayList<String[]> rapports) {
+        super(context, R.layout.alerte,(ArrayList<String[]>) rapports);
         rapportss = rapports;
     }
 
@@ -34,6 +36,4 @@ public class mySecondAdapter extends ArrayAdapter<String[]> {
         date.setText(rapportt[4]);
         return rapport;
     }
-
-
 }

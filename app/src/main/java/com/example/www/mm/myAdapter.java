@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class myAdapter extends ArrayAdapter<String[]> {
 
-    String[][] alertess;
-    public myAdapter(@NonNull Context context, @NonNull String[][] alertes) {
-        super(context, R.layout.alerte,(String[][]) alertes);
+    ArrayList<String[]> alertess;
+    public myAdapter(@NonNull Context context, @NonNull ArrayList<String[]> alertes) {
+        super(context, R.layout.alerte,(ArrayList<String[]>) alertes);
         alertess = alertes;
     }
 

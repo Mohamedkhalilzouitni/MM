@@ -74,7 +74,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <service android:name=".Service.myFirebaseInstanceService"
+        <service android:name=".myFirebaseInstanceService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

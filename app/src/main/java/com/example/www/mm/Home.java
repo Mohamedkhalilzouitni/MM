@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -28,14 +29,22 @@ import android.widget.TextView;
 //import com.google.firebase.database.ValueEventListener;
 //import com.google.firebase.messaging.FirebaseMessaging;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 public class    Home extends AppCompatActivity {
     static public String nom, prenom;
     TextView infoDr;
-//    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//    DatabaseReference databaseReference = firebaseDatabase.getReference("Alerts/newAlert");
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = firebaseDatabase.getReference("Alerts/newAlert");
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -101,30 +110,29 @@ public class    Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         infoDr = findViewById(R.id.Info_Dr);
-//        FirebaseMessaging.getInstance().subscribeToTopic("all");
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 //
-//        databaseReference.addValueEventListener(new ValueEventListener(){
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot){
-//                String lu = (String) dataSnapshot.getValue();
-//                Log.d("TAG", lu);
-//                if(lu.equals("0")){
-////                    Notify(Home.this,"Nouvelle Alerte !","Cliquez pour en savoir plus...",getIntent());
+        databaseReference.addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot){
+                String lu = (String) dataSnapshot.getValue();
+                Log.d("TAG", lu);
+                if(lu.equals("0")){
+//                    Notify(Home.this,"Nouvelle Alerte !","Cliquez pour en savoir plus...",getIntent());
 //                   HashMap<String,String> data = new HashMap<>();
 //                   data.put("title","Nouvelle alerte !");
 //                   data.put("body","Cliquez pour en savoir plus...");
-//                   showNotification("Nouvelle alerte !","Cliquez pour en savoir plus...");
-//
-//                    databaseReference.setValue("1");
-//                }
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError error){
-//
-//            }
-//        });
+                   showNotification("Nouvelle alerte !","Cliquez pour en savoir plus...");
+                   databaseReference.setValue("1");
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error){
+
+            }
+        });
 
         Intent intent = getIntent();
             Bundle bd = getIntent().getExtras();
@@ -198,7 +206,16 @@ public class    Home extends AppCompatActivity {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
         notificationBuilder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.drawable.alarm).setContentTitle(title).setContentText(body).setContentInfo("Info");
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        Intent intent = new Intent(getApplicationContext(),Home.class);
+        stackBuilder.addNextIntent(intent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
+                0,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+        notificationBuilder.setContentIntent(resultPendingIntent);
         notificationManager.notify(new Random().nextInt(),notificationBuilder.build());
+        notificationManager.cancel(0);
     }
 
     private void showNotification(Map<String,String> data) {
@@ -244,13 +261,7 @@ public class    Home extends AppCompatActivity {
                 .setContentTitle(title)
                 .setContentText(body);
 
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addNextIntent(intent);
-        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
-                0,
-                PendingIntent.FLAG_UPDATE_CURRENT
-        );
-        mBuilder.setContentIntent(resultPendingIntent);
+
 
         notificationManager.notify(notificationId, mBuilder.build());
     }

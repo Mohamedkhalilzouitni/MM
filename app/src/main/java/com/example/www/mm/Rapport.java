@@ -19,8 +19,8 @@ public class Rapport extends AppCompatActivity {
 
      String[][] rapport = new String[4][3];
      TextView dater,npr,ndr,symptom1,grade1,symptom2,grade2,symptom3,grade3,symptom4,grade4,dateC;
-     String nom,prenom,num_dossier,tel,date,dateChimio;
-     int id_patient,id_rapport;
+     String nom,prenom,num_dossier,tel,date,dateChimio,id_patient,id_rapport;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +47,8 @@ public class Rapport extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if (b != null)
         {
-            id_rapport = b.getInt("id_rapport");
-            id_patient = b.getInt("id_patient");
+            id_rapport = b.getString("id_rapport");
+            id_patient = b.getString("id_patient");
             nom = b.getString("nom");
             prenom = b.getString("prenom");
             num_dossier = b.getString("num_dossier");
@@ -159,7 +159,8 @@ public class Rapport extends AppCompatActivity {
                 } catch (Exception E) {
                     E.printStackTrace();
                 }
-                bW.execute(String.valueOf(id_patient)," ","detail_profil");
+                bW.execute(id_patient," ","detail_profil");
+                System.out.println(id_patient);
             }
         });
     }

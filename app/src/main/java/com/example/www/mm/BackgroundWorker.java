@@ -344,7 +344,14 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                 conn.setDoOutput(true);
                 conn.setDoInput(true);
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
-                String post_data = URLEncoder.encode("nom", "UTF-8") + "=" + URLEncoder.encode(nom_, "UTF-8")  + "&" + URLEncoder.encode("prenom", "UTF-8") + "=" + URLEncoder.encode(prenom_, "UTF-8") + "&" + URLEncoder.encode("numdos", "UTF-8") + "=" + URLEncoder.encode(nd_, "UTF-8")  + "&" + URLEncoder.encode("adr", "UTF-8") + "=" + URLEncoder.encode(adr_, "UTF-8") + "&" + URLEncoder.encode("tel", "UTF-8") + "=" + URLEncoder.encode(tel_, "UTF-8")  + "&" + URLEncoder.encode("statut", "UTF-8") + "=" + URLEncoder.encode(statut_, "UTF-8") + "&" + URLEncoder.encode("nbrenf", "UTF-8") + "=" + URLEncoder.encode(nbe_, "UTF-8")  + "&" + URLEncoder.encode("ln", "UTF-8") + "=" + URLEncoder.encode(ln_, "UTF-8") + "&" + URLEncoder.encode("dn", "UTF-8") + "=" + URLEncoder.encode(dn_, "UTF-8")  + "&" + URLEncoder.encode("protocole", "UTF-8") + "=" + URLEncoder.encode(protocole_, "UTF-8") + "&" + URLEncoder.encode("centre", "UTF-8") + "=" + URLEncoder.encode(centre_, "UTF-8")  + "&" + URLEncoder.encode("service", "UTF-8") + "=" + URLEncoder.encode(service_, "UTF-8") + "&" + URLEncoder.encode("medecin", "UTF-8") + "=" + URLEncoder.encode(medecin_, "UTF-8")  + "&" + URLEncoder.encode("localisation", "UTF-8") + "=" + URLEncoder.encode(localisation_, "UTF-8") + "&" + URLEncoder.encode("histologie", "UTF-8") + "=" + URLEncoder.encode(histologie_, "UTF-8")  + "&" + URLEncoder.encode("stade", "UTF-8") + "=" + URLEncoder.encode(stade_, "UTF-8") + "&" + URLEncoder.encode("strategie", "UTF-8") + "=" + URLEncoder.encode(strategie_, "UTF-8")  + "&" + URLEncoder.encode("couverture", "UTF-8") + "=" + URLEncoder.encode(couverture_, "UTF-8")+ "&" + URLEncoder.encode("cin", "UTF-8") + "=" + URLEncoder.encode(cin_, "UTF-8")+ "&" + URLEncoder.encode("telC", "UTF-8") + "=" + URLEncoder.encode(telC_, "UTF-8")+ "&" + URLEncoder.encode("details", "UTF-8") + "=" + URLEncoder.encode(details_, "UTF-8");
+                String post_data = URLEncoder.encode("nom", "UTF-8") + "=" + URLEncoder.encode(nom_, "UTF-8")  + "&" + URLEncoder.encode("prenom", "UTF-8") + "=" + URLEncoder.encode(prenom_, "UTF-8") + "&" + URLEncoder.encode("numdos", "UTF-8") + "=" + URLEncoder.encode(nd_, "UTF-8")  + "&" + URLEncoder.encode("adr", "UTF-8") + "=" + URLEncoder.encode(adr_, "UTF-8") + "&" + URLEncoder.encode("tel", "UTF-8") + "=" + URLEncoder.encode(tel_, "UTF-8")  + "&" + URLEncoder.encode("statut", "UTF-8") + "=" + URLEncoder.encode(statut_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("nbrenf", "UTF-8") + "=" + URLEncoder.encode(nbe_, "UTF-8")  + "&" + URLEncoder.encode("ln", "UTF-8") + "=" + URLEncoder.encode(ln_, "UTF-8") + "&" + URLEncoder.encode("dn", "UTF-8") + "=" + URLEncoder.encode(dn_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("protocole", "UTF-8") + "=" + URLEncoder.encode(protocole_, "UTF-8") + "&" + URLEncoder.encode("centre", "UTF-8") + "=" + URLEncoder.encode(centre_, "UTF-8")  + "&" + URLEncoder.encode("service", "UTF-8") + "=" + URLEncoder.encode(service_, "UTF-8") + "&" + URLEncoder.encode("medecin", "UTF-8") + "=" + URLEncoder.encode(medecin_, "UTF-8")  + "&" + URLEncoder.encode("localisation", "UTF-8") + "=" + URLEncoder.encode(localisation_, "UTF-8") + "&" + URLEncoder.encode("histologie", "UTF-8") + "=" + URLEncoder.encode(histologie_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("stade", "UTF-8") + "=" + URLEncoder.encode(stade_, "UTF-8") + "&" + URLEncoder.encode("strategie", "UTF-8") + "=" + URLEncoder.encode(strategie_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("couverture", "UTF-8") + "=" + URLEncoder.encode(couverture_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("cin", "UTF-8") + "=" + URLEncoder.encode(cin_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("telC", "UTF-8") + "=" + URLEncoder.encode(telC_, "UTF-8");
+                post_data += "&" + URLEncoder.encode("details", "UTF-8") + "=" + URLEncoder.encode(details_, "UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -540,6 +547,7 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                     JSONObject reader = new JSONObject(s);
                     JSONObject sized = reader.getJSONObject("data");
                     int size = sized.getInt("size");
+//                    Toast.makeText(context,"size : " + size,Toast.LENGTH_SHORT).show();
                     String [][] rapports = new String[size][5];
                     String[] jArray;
                     for (int i=0;i<size;i++) {
@@ -570,6 +578,7 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                     dater = sized.getString("date_rapport");
                     num_dossierrr = sized.getString("Num_dossier");
                     telrr = sized.getString("Num_telephone");
+                    dateChi = sized.getString("dateChimio");
                     String [][] symptoms = new String[size][2];
                     String[] jArray;
                     for (int i=0;i<size;i++) {
@@ -631,6 +640,7 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                 }
             }else if (typ.equals("inscription_patient")) {
                 try {
+                    System.out.println(s);
                     JSONObject reader = new JSONObject(s);
                     JSONObject JObject = reader.getJSONObject("data");
                     int ri = JObject.getInt("success");
@@ -720,8 +730,6 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                         jArray2 = new String[]{String.valueOf(grade), num_dossier, nom + " " + prenom, date_alerte, tel,String.valueOf(id_alerte),String.valueOf(id_patient),String.valueOf(id_rapport),String.valueOf(idDes)};
                         alerts[i] = (String[]) jArray2;
                     }
-
-
                         int id_patient = sized.getInt("id_patient");
                         String nom= sized.getString("nom");
                         String cin= sized.getString("cin");
@@ -837,6 +845,7 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
             error.setTitle("Erreur");
             error.setMessage("Erreur interne !");
             error.create().show();
+            Toast.makeText(context,String.valueOf(r),Toast.LENGTH_SHORT).show();
         }
     }
 

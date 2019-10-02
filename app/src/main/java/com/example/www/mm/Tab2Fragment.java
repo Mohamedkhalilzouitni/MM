@@ -187,48 +187,20 @@ public class Tab2Fragment extends Fragment {
                     protocole.requestFocus();
                     success = 0;
                 }
-
+                details_ = details.getText().toString();
 
                 centre_ = centre.getSelectedItem().toString();
-                /*if(centre_.equals("--Centre--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Centre'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 service_ = service.getSelectedItem().toString();
-               /* if(service_.equals("--Service--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Service' !",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 medecin_ = medecin.getSelectedItem().toString();
-                /*if(medecin_.equals("--Médecin traitant--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Medecin traitant'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 for (int i = 0; i< size; i++){
                     if (medecin_.equals(medecinss[i])){
                         id_medecin = Integer.valueOf(medecins[i][0]);
                     }
                 }
                 localisation_ = localisation.getSelectedItem().toString();
-               /* if(localisation_.equals("--Localisation_--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Localisation'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 histologie_ = histologie.getSelectedItem().toString();
-              /*  if(histologie_.equals("--Histologie--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Histologie'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 stade_ = stade.getSelectedItem().toString();
-               /* if(stade_.equals("--Stade--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Stade'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 strategie_ = strategie.getSelectedItem().toString();
-                /*if(stade_.equals("--Strategie--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Strategie'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 couverture_ = couverture.getSelectedItem().toString();
                 if(couverture_.equals("--Couverture médicale--")){
                     Toast.makeText(getContext(),"Veuillez remplir le champs 'Couverture médicale'",Toast.LENGTH_LONG).show();

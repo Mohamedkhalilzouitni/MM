@@ -18,8 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import static java.sql.DriverManager.println;
 
@@ -28,9 +31,9 @@ public class singleProfile extends AppCompatActivity {
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
     static int id_patient;
-    static String[][] rapports;
-    static String[][] alertes;
-    static String id_patientr, cin, centre, nom, prenom, adresse, couverture_social, Statut_social, Nombre_enfants, Num_dossier, Num_telephone, date_naissance, Protocole, Service, Localisation, Histologie, Stade, Strategie, nom_med, prenom_med, Lieu_naissance;
+    static ArrayList<String[]> rapports = new ArrayList<>();
+    static ArrayList<String[]> alertes = new ArrayList<>();
+    static String telC, id_patientr, cin, centre, nom, prenom, adresse, couverture_social, Statut_social, Nombre_enfants, Num_dossier, Num_telephone, date_naissance, Protocole, Service, Localisation, Histologie, Stade, Strategie, nom_med, prenom_med, Lieu_naissance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,6 @@ public class singleProfile extends AppCompatActivity {
         setupViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
         Bundle b = getIntent().getExtras();
         if (b != null) {
             id_patientr = b.getString("id_patient");
@@ -67,35 +69,29 @@ public class singleProfile extends AppCompatActivity {
             nom_med = b.getString("nom_med");
             prenom_med = b.getString("prenom_med");
             centre = b.getString("centre");
+            telC = b.getString("telC");
             System.out.println("Bismillah");
             Log.d(TAG, "Bismillah");
 
             int size = b.getInt("size");
-
-            rapports = new String[size][6];
             Object[] objectArray = (Object[]) b.getSerializable("rapportsPatient");
             if (objectArray != null) {
-                rapports = new String[size][];
                 for (int i = 0; i < size; i++) {
-                    rapports[i] = (String[]) objectArray[i];
-                    System.out.println("This is the id_patient : " + rapports[i][5] + " and this is the id_rapport : " + rapports[i][0]);
+                    rapports.add((String[]) objectArray[i]);
+                    System.out.println("This is the id_patient : " + rapports.get(i)[5] + " and this is the id_rapport : " + rapports.get(i)[0]);
                 }
             }
 
             int sizeA = b.getInt("sizeA");
-            alertes = new String[size][11];
             Object[] objectArray2 = (Object[]) b.getSerializable("alertesPatient");
             if (objectArray != null) {
-                alertes = new String[objectArray2.length][];
                 for (int i = 0; i < objectArray2.length; i++) {
-                    alertes[i] = (String[]) objectArray2[i];
+                    alertes.add((String[]) objectArray2[i]);
                 }
             } else {
                 Toast.makeText(this, "Veuillez attendez SVP...", Toast.LENGTH_SHORT).show();
             }
-            Toast.makeText(this, String.valueOf(rapports.length), Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void setupViewPager(ViewPager viewPager) {
