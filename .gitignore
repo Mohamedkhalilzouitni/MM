@@ -13,7 +13,7 @@
 =======
 # Built application files
 #*.apk
-*.ap
+#*.ap
 
 # Files for the ART/Dalvik VM
 *.dex
