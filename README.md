@@ -6,3 +6,7 @@ Now that I've completed all the basic stuff needed so the App can work properly,
 
 Tool used to create logos used in the application : 
 * www.logomakr.com
+
+
+Just a random quote in French : 
+"On ne peut pas rattraper le temps perdu.. mais on peut arrêter de perdre son temps"
