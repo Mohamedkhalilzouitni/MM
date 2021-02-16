@@ -512,7 +512,7 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                 try {
                     JSONObject reader = new JSONObject(s);
                     int result = reader.getInt("data");
-//                    moveC(result);
+                    recoverPassword(result);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -883,6 +883,51 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
         }
     }
 
+    public void recoverPassword (int result) {
+        AlertDialog.Builder reponse = new AlertDialog.Builder(context);
+        reponse.setCancelable(true);
+        switch (result) {
+            case 0:
+                reponse.setIcon(R.drawable.mail);
+                reponse.setTitle("Erreur interne !");
+                reponse.setMessage("Il y avait une erreur lors de l'envoi du mail de récuperation de mot de passe," +
+                        " veuillez réessayer ! Si le problème persiste, veuillez contacter l'équipe d'administrateurs" +
+                        " du système MonitTox par mail sur ozickhalil@gmail.com");
+                break;
+            case -1:
+                reponse.setIcon(R.drawable.denied2);
+                reponse.setTitle("Accès refusé !");
+                reponse.setMessage("La demande d'inscription du médecin correspondant n'a pas encore été approuvée par les" +
+                        " administrateurs du système MonitTox.");
+                break;
+            case 10:
+                reponse.setIcon(R.drawable.denied);
+                reponse.setTitle("Erreur interne !");
+                reponse.setMessage("Erreur interne du serveur de traitement ! Veuillez vérifier l'adresse mail que" +
+                        " vous avez envoyé contacter les administrateurs du système MonitTox par mail sur ozickhalil@gmail.com");
+                break;
+            case 100:
+                reponse.setIcon(R.drawable.denied);
+                reponse.setTitle("Médecin introuvable !");
+                reponse.setMessage("L'adresse mail que vous avez saisi(e) ne correspond à aucun compte de médecin !");
+                break;
+            case 1:
+                reponse.setCancelable(false);
+                reponse.setIcon(R.drawable.sent);
+                reponse.setTitle("Email envoyé !");
+                reponse.setMessage("Veuillez vérifier votre boite mail pour récupérer vos identifiants !");
+                reponse.setPositiveButton("Se connecter", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(context, Connexion.class);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+        }
+            reponse.create().show();
+    }
+
     private void moveC(int res,String n, String p,int a, int r){
         final int an = a;
         final int rn = r;
@@ -890,13 +935,14 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
         final String pm = p;
         n = n.substring(0, 1).toUpperCase() + n.substring(1);
         p = p.substring(0, 1).toUpperCase() + p.substring(1);
+        AlertDialog.Builder reponse = new AlertDialog.Builder(context);
+        reponse.setCancelable(true);
         if (res == 1) {
-            AlertDialog.Builder error = new AlertDialog.Builder(context);
-            error.setCancelable(false);
-            error.setIcon(R.drawable.lock);
-            error.setTitle("Connexion réussite");
-            error.setMessage("Bienvenue Dr. "+n+" "+p);
-            error.setPositiveButton("Entrer", new DialogInterface.OnClickListener() {
+            reponse.setCancelable(false);
+            reponse.setIcon(R.drawable.lock);
+            reponse.setTitle("Connexion réussite");
+            reponse.setMessage("Bienvenue Dr. "+n+" "+p);
+            reponse.setPositiveButton("Entrer", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
                     Intent intent = new Intent(context, Home.class);
@@ -910,23 +956,16 @@ public class BackgroundWorker extends AsyncTask<String,String,String> {
                     context.startActivity(intent);
                 }
             });
-            error.create().show();
-
         } else if (res == -1){
-            AlertDialog.Builder error = new AlertDialog.Builder(context);
-            error.setCancelable(true);
-            error.setIcon(R.drawable.lock1);
-            error.setTitle("Erreur");
-            error.setMessage("Votre inscription n'a pas été encore approuvé par l'admin!");
-            error.create().show();
+            reponse.setIcon(R.drawable.id_card);
+            reponse.setTitle("Erreur");
+            reponse.setMessage("Votre inscription n'a pas été encore approuvé par l'admin!");
         }else {
-            AlertDialog.Builder error = new AlertDialog.Builder(context);
-            error.setCancelable(true);
-            error.setIcon(R.drawable.lock1);
-            error.setTitle("Erreur");
-            error.setMessage("Erreur d'authentification. Vérifiez vos identifiants!");
-            error.create().show();
+            reponse.setIcon(R.drawable.lock1);
+            reponse.setTitle("Erreur");
+            reponse.setMessage("Erreur d'authentification. Vérifiez vos identifiants!");
         }
+        reponse.create().show();
     }
 
     public void moveSR(){

@@ -15,7 +15,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:src="@drawable/monitox3"
+        android:src="@drawable/monitox"
         android:layout_marginBottom="50dp"/>
 
     <ImageView

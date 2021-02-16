@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 *.iml
+*.apk
 .gradle
 /local.properties
 /.idea/caches/build_file_checksums.ser
@@ -76,4 +76,4 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
->>>>>>> bf8537dcd2760db2c66e4d5a0438a3a4971ca98f
+

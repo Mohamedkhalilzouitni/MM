@@ -67,8 +67,8 @@ public class Tab2Fragment extends Fragment {
         }
         String [] localisations = {"Cerveau","Nasopharynx","Hypopharynx","Larynx","Thyroïde","Oesophage","Estomac","Grêle","Colon","Rectum",
                                     "Canal anal", "Bronches" ,"Poumon","Thymus","Sein","Ovaire","Endomètre","Col de l'utérus","Vulve","Foie",
-                                    "Pancréas","Vésicule biliaire","Rein","Voies excrétrices","Prostate","Pénis","Testicles","Parties molles",
-                                    "Rétropéritoine", "Ganglions","Os","Peau","Tête et cou : autre","Carcinome à primtif inconnu"};
+                                    "Pancréas","Vésicule biliaire","Rein","Voies excrétrices","Prostate","Pénis","Testicules","Parties molles",
+                                    "Rétropéritoine", "Ganglions","Os","Peau", "Plèvre", "Voires Biliales", "Vessie", "Tête et cou : autre","Carcinome à primtif inconnu", "Autre"};
 
         String [] histologies = {"Carcinome NOS","CHC","Carcinome à cellules claires",
                                 "Carcinome vésiculaire","Carcinome thymique","Thymome",

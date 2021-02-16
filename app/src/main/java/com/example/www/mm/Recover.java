@@ -13,6 +13,7 @@ public class Recover extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recover);
+        overridePendingTransition(R.layout.fadein, R.layout.fadeout);
     }
 
     boolean isEmailValid(CharSequence email) {
@@ -21,15 +22,15 @@ public class Recover extends AppCompatActivity {
 
     public void check(View v){
         EditText emailid = findViewById(R.id.email_recover);
-        String getEmailId = emailid.getText().toString();
+        String emailText = emailid.getText().toString();
 
-        if(getEmailId.length()==0){
+        if(emailText.length()==0){
             emailid.setError("Veuillez saisir votre adresse email !");
             emailid.requestFocus();
         }
 
 // Check if email id is valid or not
-        if (!isEmailValid(getEmailId)){
+        if (!isEmailValid(emailText)){
             AlertDialog.Builder error = new AlertDialog.Builder(this);
             error.setCancelable(true);
             error.setIcon(R.drawable.exclamation_mark);
@@ -48,7 +49,7 @@ public class Recover extends AppCompatActivity {
             } catch (Exception E) {
                 E.printStackTrace();
             }
-            bW.execute(getEmailId,"","recover");
+            bW.execute(emailText,"","recover");
         }
     }
 }

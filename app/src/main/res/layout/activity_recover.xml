@@ -93,7 +93,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:padding="5dp"
-        android:text="**fonctionnalité en cours de développement !"
+        android:text="Centre Ahmad Bin Zayed Al Nahyan de traitement des cancers de Tanger"
         android:textColor="#000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

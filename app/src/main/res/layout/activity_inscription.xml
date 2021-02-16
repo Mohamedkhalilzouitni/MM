@@ -62,7 +62,8 @@
                 android:hint="Nom"
                 android:inputType="textCapWords"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -85,7 +86,8 @@
                 android:hint="Prénom"
                 android:inputType="textCapWords"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -108,7 +110,8 @@
                 android:hint="INPE"
                 android:inputType="textCapWords"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -132,7 +135,8 @@
                 android:hint="Hôpital"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -156,7 +160,8 @@
                 android:hint="Ville"
                 android:inputType="textCapWords"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -180,7 +185,8 @@
                 android:hint="Téléphone"
                 android:inputType="phone"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -203,7 +209,8 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -227,7 +234,8 @@
                 android:inputType="textPassword"
                 android:maxLength="10"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -251,7 +259,8 @@
                 android:inputType="textPassword"
                 android:maxLength="10"
                 android:maxLines="1"
-                android:textColorHint="#022f48"
+                android:textColor="#fff"
+                android:textColorHint="#fff"
                 android:visibility="visible" />
         </LinearLayout>
 
@@ -271,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:textColor="#fff"
                 android:background="@drawable/shapesignup"
                 android:text="S'inscrire" />
         </LinearLayout>
