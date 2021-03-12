@@ -19,9 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Tab2Fragment extends Fragment {
-    private static final String TAG = "Tab2Fragment";
     public Spinner centre, service,medecin,localisation,histologie,stade,strategie;
-    String nom_,prenom_,adr_,tel_,nd_,adrp_,nbe_,ln_,dn_,protocole_,centre_, service_,medecin_,localisation_,histologie_,stade_,strategie_,couverture_, statut_,cin_;
+    String telC_, details_, nom_,prenom_,adr_,tel_,nd_,adrp_,nbe_,ln_,dn_,protocole_,centre_, service_,medecin_,localisation_,histologie_,stade_,strategie_,couverture_, statut_,cin_;
     public Spinner couverture, statut;
     int std, size, id_medecin;
     EditText nom;
@@ -30,7 +29,7 @@ public class Tab2Fragment extends Fragment {
     EditText tel;
     EditText nd;
     EditText nbe;
-    EditText ln;
+    EditText ln, telC, details;
     TextView dn;
     EditText protocole;
     EditText cin;
@@ -42,11 +41,13 @@ public class Tab2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.tab2_fragment,container,false);
         TextView titre =  view.findViewById(R.id.R_M);
-        SpannableString content1 = new SpannableString("Renseignements médicaux");
+        SpannableString content1 = new SpannableString("Données Médicales");
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
         titre.setText(content1);
         Typeface Acme = Typeface.createFromAsset(getContext().getAssets(),"Acme-Regular.ttf");
         titre.setTypeface(Acme);
+        details = view.findViewById(R.id.details_);
+        telC = view.findViewById(R.id.numtel_);
         couverture = (Spinner) view.findViewById(R.id.couverture_);
         statut = (Spinner) view.findViewById(R.id.sc_);
         centre = (Spinner) view.findViewById(R.id.centre_);
@@ -57,21 +58,26 @@ public class Tab2Fragment extends Fragment {
         stade = (Spinner) view.findViewById(R.id.stade_);
         strategie = (Spinner) view.findViewById(R.id.strategie_);
         String [] centres = {"Centre Ahmad Bin Zayed Al Nahyan de traitement des cancers"};
-        String [] services = {"Oncologie médicale"};
+        String [] services = {"Oncologie Médicale"};
         final String [][] medecins = AjouterPatient.medecins;
         size = medecins.length;
         final String [] medecinss = new String[size];
         for (int i = 0; i<size;i++){
-            medecinss[i] ="Dr. "+ medecins[i][1]+" "+medecins[i][2];
+            medecinss[i] ="Dr. "+ medecins[i][2].substring(0, 1).toUpperCase()+ medecins[i][2].substring(1)+" "+medecins[i][1].substring(0, 1).toUpperCase()+ medecins[i][1].substring(1);
         }
         String [] localisations = {"Cerveau","Nasopharynx","Hypopharynx","Larynx","Thyroïde","Oesophage","Estomac","Grêle","Colon","Rectum",
-                                    "canal anal", "bronches" ,"poumon","thymus","sein","ovaire","endomètre","col de l'utérus","vulve","foie",
-                                    "Pancréas","Vésicule biliaire","Rein","Voies excrétrices","Prostate","Pénis","Testicles","Parties molles",
-                                    "Rétropéritoine", "Ganglions","Os","Peau"};
-        String [] histologies = {"Adénocarcinome","Carcinome épidermoide","Carcinome neuroendocrine peu différencié",
-                                  "Carcinome neuroendocrine bien différencié","Carcinome NOS","CHC","Carcinome à cellules claires",
-                                 "Carcinome papillaire","Carcinome vésiculaire","Carcinome thymique","Thymome","Séminome",
-                                  "Tumeur germinale non séminomateuse","GIST","Ostéosarcome"};
+                                    "Canal anal", "Bronches" ,"Poumon","Thymus","Sein","Ovaire","Endomètre","Col de l'utérus","Vulve","Foie",
+                                    "Pancréas","Vésicule biliaire","Rein","Voies excrétrices","Prostate","Pénis","Testicules","Parties molles",
+                                    "Rétropéritoine", "Ganglions","Os","Peau", "Plèvre", "Voires Biliales", "Vessie", "Tête et cou : autre","Carcinome à primtif inconnu", "Autre"};
+
+        String [] histologies = {"Carcinome NOS","CHC","Carcinome à cellules claires",
+                                "Carcinome vésiculaire","Carcinome thymique","Thymome",
+                                  "Tumeur germinale non séminomateuse","GIST","Ostéosarcome",
+                "Glioblastome","Astrocytome","UCNT","Carcinome épidermoïde","Carcinome adénoïde kystique","Carcinome papillaire",
+        "Carcinome anaplasique","Adénocarcinome","Carcinome à cellules en bague à chatons",
+        "Carcinome neuroendocrine bien différencié","Carcinome neuroendocrine peu différencié","Carcinome à petites cellules","Carcinome TNS",
+         "Sarcome des tissus mous","Sarcome","Sarcome d’Ewing", "Carcinome hépatocellulaire", "Carcinome urothélial",
+        "Séminome", "Tumeur à cellules géantes", "Autre"};
         String [] stades = {"I","II","III","IV"};
         String [] strategies = {"Néoadjuvante","Adjuvante","Palliative","Chimiothérapie Concomitante"};
 
@@ -119,6 +125,12 @@ public class Tab2Fragment extends Fragment {
                 if(cin_.length()==0){
                     cin.setError("ce champs est obligatoire!");
                     cin.requestFocus();
+                    success = 0;
+                }
+                telC_ = telC.getText().toString();
+                if(telC_.length()==0){
+                    telC.setError("ce champs est obligatoire!");
+                    telC.requestFocus();
                     success = 0;
                 }
                 nom_ = nom.getText().toString();
@@ -175,51 +187,23 @@ public class Tab2Fragment extends Fragment {
                     protocole.requestFocus();
                     success = 0;
                 }
-
+                details_ = details.getText().toString();
 
                 centre_ = centre.getSelectedItem().toString();
-                /*if(centre_.equals("--Centre--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Centre'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 service_ = service.getSelectedItem().toString();
-               /* if(service_.equals("--Service--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Service' !",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 medecin_ = medecin.getSelectedItem().toString();
-                /*if(medecin_.equals("--Médecin traitant--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Medecin traitant'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 for (int i = 0; i< size; i++){
                     if (medecin_.equals(medecinss[i])){
                         id_medecin = Integer.valueOf(medecins[i][0]);
                     }
                 }
                 localisation_ = localisation.getSelectedItem().toString();
-               /* if(localisation_.equals("--Localisation_--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Localisation'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 histologie_ = histologie.getSelectedItem().toString();
-              /*  if(histologie_.equals("--Histologie--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Histologie'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 stade_ = stade.getSelectedItem().toString();
-               /* if(stade_.equals("--Stade--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Stade'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 strategie_ = strategie.getSelectedItem().toString();
-                /*if(stade_.equals("--Strategie--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Strategie'",Toast.LENGTH_LONG).show();
-                    success = 0;
-                }*/
                 couverture_ = couverture.getSelectedItem().toString();
-                if(couverture_.equals("--Couverture sociale--")){
-                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Couverture sociale'",Toast.LENGTH_LONG).show();
+                if(couverture_.equals("--Couverture médicale--")){
+                    Toast.makeText(getContext(),"Veuillez remplir le champs 'Couverture médicale'",Toast.LENGTH_LONG).show();
                     success = 0;
                 }
                 statut_ = statut.getSelectedItem().toString();
@@ -258,7 +242,7 @@ public class Tab2Fragment extends Fragment {
                             } catch (Exception E) {
                                 E.printStackTrace();
                             }
-                          bW.execute(nom_,prenom_,"inscription_patient",adr_,tel_,statut_,nd_,nbe_,ln_,dn_,protocole_,centre_,service_,String.valueOf(id_medecin),localisation_,histologie_,String.valueOf(std),strategie_,couverture_,cin_);
+                          bW.execute(nom_,prenom_,"inscription_patient",adr_,tel_,statut_,nd_,nbe_,ln_,dn_,protocole_,centre_,service_,String.valueOf(id_medecin),localisation_,histologie_,String.valueOf(std),strategie_,couverture_,cin_,telC_, details_);
                         }
                     }).setNegativeButton("Non", new DialogInterface.OnClickListener() {
                         @Override

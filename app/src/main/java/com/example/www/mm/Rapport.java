@@ -1,11 +1,13 @@
 package com.example.www.mm;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +18,9 @@ import android.widget.Toast;
 public class Rapport extends AppCompatActivity {
 
      String[][] rapport = new String[4][3];
-    TextView dater,npr,ndr,symptom1,grade1,symptom2,grade2,symptom3,grade3,symptom4,grade4;
-     String nom,prenom,num_dossier,tel,date;
-     int id_patient,id_rapport;
+     TextView dater,npr,ndr,symptom1,grade1,symptom2,grade2,symptom3,grade3,symptom4,grade4,dateC;
+     String nom,prenom,num_dossier,tel,date,dateChimio,id_patient,id_rapport;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class Rapport extends AppCompatActivity {
         dater = findViewById(R.id.dater);
         npr = findViewById(R.id.npr);
         ndr = findViewById(R.id.ndr);
+        dateC = findViewById(R.id.dateChim);
         symptom1 = findViewById(R.id.symptom1);
         grade1 = findViewById(R.id.grades1);
         symptom2 = findViewById(R.id.symptom2);
@@ -44,13 +47,14 @@ public class Rapport extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if (b != null)
         {
-            id_rapport = b.getInt("id_rapport");
-            id_patient = b.getInt("id_patient");
+            id_rapport = b.getString("id_rapport");
+            id_patient = b.getString("id_patient");
             nom = b.getString("nom");
             prenom = b.getString("prenom");
             num_dossier = b.getString("num_dossier");
             tel = b.getString("tel");
             date = b.getString("date");
+            dateChimio = b.getString("dateChimio");
             int size = b.getInt("size");
 
             rapport=new String[size][3];
@@ -64,6 +68,7 @@ public class Rapport extends AppCompatActivity {
             dater.setText(date);
             npr.setText(nom+" "+prenom);
             ndr.setText(num_dossier);
+            dateC.setText(dateChimio);
 
 
 
@@ -129,7 +134,18 @@ public class Rapport extends AppCompatActivity {
         supp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                supprimer();
+                AlertDialog.Builder con = new AlertDialog.Builder(Rapport.this);
+                con.setCancelable(true);
+                con.setIcon(R.drawable.exclamation_mark);
+                con.setTitle("Confirmation");
+                con.setMessage("Voulez-vous vraiment supprimer ce rapport ?");
+                con.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        supprimer();
+                    }
+                });
+                con.create().show();
             }
         });
 
@@ -143,13 +159,13 @@ public class Rapport extends AppCompatActivity {
                 } catch (Exception E) {
                     E.printStackTrace();
                 }
-                bW.execute(String.valueOf(id_patient)," ","detail_profil");
+                bW.execute(id_patient," ","detail_profil");
+                System.out.println(id_patient);
             }
         });
     }
 
     public void supprimer(){
-
         BackgroundWorker bW = null;
         try {
             bW = new BackgroundWorker(Rapport.this);

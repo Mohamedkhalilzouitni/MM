@@ -37,7 +37,8 @@ public class Connexion extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+        startActivity(new Intent(Connexion.this,MainActivity.class));
+        finish();
     }
 
     public void Recover(View v){

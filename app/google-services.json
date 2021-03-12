@@ -52,25 +52,17 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:97441364486:android:2b9a511ed9381f86",
+        "mobilesdk_app_id": "1:97441364486:android:71cd5f2ca0bcdca9",
         "android_client_info": {
-          "package_name": "com.watching_environment.MoniTox"
+          "package_name": "com.watching_environment.httpsoncotool.mp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "97441364486-r84dsighe2o0kcihd722l4t0bncjsp25.apps.googleusercontent.com",
+          "client_id": "97441364486-gh4fkf94ntum40mjodnm58i9k5lea3tp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.watching_environment.MoniTox",
-            "certificate_hash": "c1149350f1b8417b155f5eb5114f2fd5d1b62d09"
-          }
-        },
-        {
-          "client_id": "97441364486-01ie5jvsupd6lr3kdlrcko10qil0tc7h.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.watching_environment.MoniTox",
+            "package_name": "com.watching_environment.httpsoncotool.mp",
             "certificate_hash": "2ecd2b2f8488f9ab475f29fe13502907547e4e28"
           }
         },

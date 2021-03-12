@@ -19,22 +19,25 @@ public class renMed extends Fragment {
 
     private static final String TAG = "renMed";
     public static View view;
-    public TextView centre_, service_,medecin_,localisation_,histologie_,stade_,strategie_,protocole_;
-    public TextView centre, service,medecin,localisation,histologie,stade,strategie,protocole;
-
-
+    public TextView telC_, centre_, service_,medecin_,localisation_,histologie_,stade_,strategie_,protocole_;
+    public TextView telC, centre, service,medecin,localisation,histologie,stade,strategie,protocole;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.ren_med,container,false);
         TextView textView1 =  view.findViewById(R.id.RenM);
-        SpannableString content1 = new SpannableString("Renseignements médicaux");
+        SpannableString content1 = new SpannableString("Données Médicales");
         content1.setSpan(new UnderlineSpan(), 0, content1.length(), 0);
         textView1.setText(content1);
 
         Typeface Acme = Typeface.createFromAsset(getContext().getAssets(),"Acme-Regular.ttf");
         textView1.setTypeface(Acme);
+
+        telC = view.findViewById(R.id.numt);
+        SpannableString ct = new SpannableString("Téléphone du centre :");
+        ct.setSpan(new UnderlineSpan(), 0, ct.length(), 0);
+        telC.setText(ct);
 
         protocole = view.findViewById(R.id.protocole);
         SpannableString c = new SpannableString("Protocole :");
@@ -85,7 +88,9 @@ public class renMed extends Fragment {
         histologie_ =  view.findViewById(R.id.histologie_);
         stade_ =  view.findViewById(R.id.stade_);
         strategie_ =  view.findViewById(R.id.strategie_);
+        telC_ =  view.findViewById(R.id.numt_);
 
+        telC_.setText(singleProfile.telC);
         protocole_.setText(singleProfile.Protocole);
         centre_.setText(singleProfile.centre);
         service_.setText(singleProfile.Service);

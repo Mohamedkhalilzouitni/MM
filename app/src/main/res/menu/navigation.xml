@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<item-->
+        <!--android:id="@+id/Accueil"-->
+        <!--android:title="Accueil"-->
+        <!--android:icon="@drawable/ic_home_black_24dp"/>-->
+
+    <item
+        android:id="@+id/Rapports"
+        android:title="Rapports"
+        android:icon="@drawable/medical_history2"/>
+
+
+    <item
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Alertes"
+        android:id="@+id/Alertes"/>
+
+    <item
+        android:id="@+id/Patients"
+        android:title="Patients"
+        android:icon="@drawable/patient"/>
+
+    <item
+        android:id="@+id/Deconnexion"
+        android:title="Déconnexion"
+        android:icon="@mipmap/login"/>
+</menu>

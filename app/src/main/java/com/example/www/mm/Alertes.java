@@ -2,32 +2,33 @@ package com.example.www.mm;
 
 
 import android.app.Activity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-
+import android.text.Editable;
 import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.style.UnderlineSpan;
 import android.view.View;
-
 import android.widget.AdapterView;
-
-import android.widget.ArrayAdapter;
-
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
-
 import android.widget.ListView;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import java.util.ArrayList;
 
 public class Alertes extends Activity {
 
-   static String[][] alertes = new String[10][10]; ;
+   ArrayList<String[]> alertes = new ArrayList<>();
+   ImageView supprimer;
+   Button searchA;
+   EditText searchArea;
+   ListView buckysListView;
 
     @Override
 
@@ -36,6 +37,35 @@ public class Alertes extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_alertes);
+        supprimer = findViewById(R.id.supprimer);
+        searchA = findViewById(R.id.searchABtn);
+        searchArea = findViewById(R.id.searchA);
+        buckysListView = findViewById(R.id.buckysListView);
+
+        searchA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchA();
+            }
+        });
+
+        searchA.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                myAdapter pf = new myAdapter(Alertes.this,alertes);
+                initList(pf);
+            }
+        });
 
         TextView alertes_lab =  findViewById(R.id.alertes_lab);
         SpannableString content1 = new SpannableString("Alertes");
@@ -63,22 +93,69 @@ public class Alertes extends Activity {
         if (bundle != null)
         {
             int size = bundle.getInt("size");
-            alertes=new String[size][10];
             Object[] objectArray = (Object[]) bundle.getSerializable("alertes");
             if(objectArray!=null){
-                alertes = new String[objectArray.length][];
-                for(int i=0;i<objectArray.length;i++){
-                    alertes[i]=(String[]) objectArray[i];
+                for(int i=0;i< size; i++){
+                    alertes.add((String[]) objectArray[i]);
                 }
             }
         } else {
             Toast.makeText(this,"Veuillez attendez SVP...",Toast.LENGTH_SHORT).show();
         }
+        myAdapter pf = new myAdapter(Alertes.this,alertes);
+        initList(pf);
+        supprimer.setOnClickListener(new View.OnClickListener() {
+            BackgroundWorker bW = null;
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder confirm = new AlertDialog.Builder(Alertes.this);
+                confirm.setCancelable(true);
+                confirm.setIcon(R.drawable.confirm);
+                confirm.setTitle("Confirmer ?");
+                confirm.setMessage("Etes-vous sûr de supprimer tous les alertes ?");
+                confirm.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        try {
+                            bW = new BackgroundWorker(Alertes.this);
+                        } catch (Exception E) {
+                            E.printStackTrace();
+                        }
+                        bW.execute("","","supprimerTousAlertes");
+                    }
+                })
+                        .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
 
-        ListAdapter buckysAdapter = new myAdapter(this, alertes);
-        ListView buckysListView = findViewById(R.id.buckysListView);
-        buckysListView.setAdapter(buckysAdapter);
+                            }
+                });
+                confirm.create().show();
+            }
+        });
+    }
 
+    public void searchA() {
+        String al = searchArea.getText().toString();
+        try {
+            ArrayList<String[]> selectedAlerts = new ArrayList<>();
+            for (String[] alert : alertes){
+                if(alert[3].toLowerCase().contains(al.toLowerCase())){
+                    selectedAlerts.add(alert);
+                    System.out.println(alert[2]);
+                }
+            }
+
+            myAdapter pf = new myAdapter(Alertes.this,selectedAlerts);
+            initList(pf);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    void initList(myAdapter pf) {
+        buckysListView.setAdapter(pf);
+        buckysListView.setTextFilterEnabled(true);
         buckysListView.setOnItemClickListener(
 
                 new AdapterView.OnItemClickListener(){
