@@ -1,21 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">MoniTox</string>
-
-    <string name="inscription">INSCRIPTION</string>
+    <string name="app_name">Monittox</string>
     <string name="AUTHENTIFICATION">S\'AUTHENTIFIER</string>
+    <string name="bienvenue">BIENVENUE A Monittox</string>
 
+    <!-- sign up form labels-->
+    <string name="inscription_form_title">INSCRIPTION</string>
 
-    <string name="bienvenue">BIENVENUE A OncoTool</string>
-
-    <string name="nom">Nom :</string>
-    <string name="prenom">Prenom :</string>
-    <string name="inpe">Code INPE :</string>
-    <string name="hopital">Hôpital :</string>
-    <string name="telephone">Téléphone :</string>
-    <string name="email">Email :</string>
-    <string name="mdp">Mot de passe :</string>
-    <string name="mdp_confirm">Confirmer le mot de passe :</string>
-    <string name="mdp_oublié">Mot de passe oublié ?</string>
+    <string name="nom_label">Nom</string>
+    <string name="prenom_label">Prenom</string>
+    <string name="lieu_naissance_label">Lieu de naissance</string>
+    <string name="date_naissance_label">Date de naissance</string>
+    <string name="inpe_label">Code INPE</string>
+    <string name="hopital_label">Hôpital</string>
+    <string name="telephone_label">Téléphone</string>
+    <string name="email_label">Adresse mail </string>
+    <string name="adresse_label">Adresse </string>
+    <string name="mdp_label">Mot de passe</string>
+    <string name="mdp_confirmation_label">Confirmer votre mot de passe</string>
+    <string name="mdp_oublie_label">Mot de passe oublié ?</string>
 
 
     <string name="alertes" tools:ignore="ExtraTranslation">Alertes</string>

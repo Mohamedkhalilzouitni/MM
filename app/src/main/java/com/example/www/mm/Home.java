@@ -27,11 +27,11 @@ public class Home extends AppCompatActivity {
                 nom = bd.getString("nom");
                 prenom = bd.getString("prenom");
             }
-
-        nom = nom.substring(0, 1).toUpperCase() + nom.substring(1);
-        prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
-        MainActivity.sp.edit().putString("nom",nom).apply();
-        MainActivity.sp.edit().putString("prenom",nom).apply();
+//
+//        nom = nom.substring(0, 1).toUpperCase() + nom.substring(1);
+//        prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
+//        MainActivity.sp.edit().putString("nom",nom).apply();
+//        MainActivity.sp.edit().putString("prenom",nom).apply();
 
         SpannableString infDr = new SpannableString("Dr. " + nom + " " + prenom);
         infDr.setSpan(new UnderlineSpan(),0,infDr.length(),0);

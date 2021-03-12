@@ -28,7 +28,7 @@
                 android:contentDescription="SIGN UP LABEL"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="@string/inscription"
+                android:text="@string/inscription_form_title"
                 android:textColor="#000"
                 android:textSize="35sp"
                 android:textStyle="bold"
@@ -37,12 +37,12 @@
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.046"
-                tools:text="@string/inscription" />
+                app:layout_constraintVertical_bias="0.046"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/nom_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -54,7 +54,7 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/nom_prompt"
+                android:id="@+id/nom_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -77,14 +77,14 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/prenom_prompt"
+                android:id="@+id/prenom_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
                 android:maxLines="1"
-                android:hint="Prénom"
+                android:hint="@string/prenom_label"
                 android:textColorHint="#022f48"
                 android:visibility="visible" />
         </LinearLayout>
@@ -100,7 +100,53 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/inpe_prompt"
+                android:id="@+id/date_naissance_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="date"
+                android:maxLines="1"
+                android:hint="@string/date_naissance_label"
+                android:textColorHint="#022f48"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/lieu_naissance_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="@string/lieu_naissance_label"
+                android:textColorHint="#022f48"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/inpe_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -124,7 +170,7 @@
 
 
             <EditText
-                android:id="@+id/hopital_prompt"
+                android:id="@+id/hopital_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -148,14 +194,14 @@
 
 
             <EditText
-                android:id="@+id/ville_prompt"
+                android:id="@+id/adresse_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:maxLines="1"
-                android:hint="Ville"
+                android:maxLines="5"
+                android:hint="@string/adresse_label"
                 android:textColorHint="#022f48"
                 android:visibility="visible" />
         </LinearLayout>
@@ -171,7 +217,7 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/telephone_prompt"
+                android:id="@+id/telephone_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -195,7 +241,7 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/email_prompt"
+                android:id="@+id/email_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -218,7 +264,7 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/mdp_prompt"
+                android:id="@+id/mdp_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -242,7 +288,7 @@
             android:padding="4dp">
 
             <EditText
-                android:id="@+id/mdp_confirm_prompt"
+                android:id="@+id/mdp_confirmation_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
